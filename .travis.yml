@@ -1,0 +1,40 @@
+language: python
+services:
+  - postgresql
+  - redis-server
+python:
+  - "2.7"
+before_script:
+- export DATABASE_URL=postgres://postgres@localhost/django_rest_postgres
+- export DJANGO_SECRET=`openssl rand -base64 32`
+- psql -c 'CREATE DATABASE "django_rest_postgres";' -U postgres
+install:
+  - "pip install -r requirements/test.txt"
+script:
+  - ./django_rest_postgres/manage.py test django_rest_postgres
+after_success:
+  - coveralls
+
+deploy:
+  provider: heroku
+  app:
+    master: django_rest_postgres-dev
+    qa: django_rest_postgres-qa
+    prod: django_rest_postgres-prod
+  on:
+    repo: osya/DjangoRESTPostgres
+  run:
+    - "./django_rest_postgres/manage.py migrate"
+
+notifications:
+  email: false
+
+# This reportedly works around an issue downloading packages from pypi on
+# travis. Consider removing this after the underlying issue is fixed.
+# https://github.com/travis-ci/travis-ci/issues/2389
+sudo: false
+
+matrix:
+  fast_finish: true
+
+cache: pip

@@ -1,0 +1,11 @@
+site_name: django_rest_postgres
+site_description: It is example of Django REST application which is used Postgres database
+repo_url: https://github.com/osya/DjangoRESTPostgres
+site_dir: site
+copyright: Copyright &copy; 2015, <a href="https://github.com/osya">osya</a>.
+
+pages:
+  - Home: 'index.md'
+  - API:
+    - Authentication: 'api/authentication.md'
+    - Users: 'api/users.md'
