@@ -6,6 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class Local(Common):
+    ALLOWED_HOSTS = ["192.168.99.100"]
 
     DEBUG = values.BooleanValue(True)
     for config in Common.TEMPLATES:

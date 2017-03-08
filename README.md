@@ -22,11 +22,7 @@ Install dependencies:
 ```bash
 pip install -r requirements/local.txt
 ```
-Create the database:
 
-```bash
-createdb django_rest_postgres
-```
 Initialize the git repository
 
 ```
@@ -34,15 +30,12 @@ git init
 git remote add origin git@github.com:osya/DjangoRESTPostgres.git
 ```
 
-Migrate the database and create a superuser:
 ```bash
-python django_rest_postgres/manage.py migrate
-python django_rest_postgres/manage.py createsuperuser
+docker-compose up
 ```
-
-Run the development server:
+Attach to the container and execute 
 ```bash
-python django_rest_postgres/manage.py runserver
+python django_rest_postgres/manage.py createsuperuser
 ```
 
 # Create Servers

@@ -149,3 +149,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+ssh_keys

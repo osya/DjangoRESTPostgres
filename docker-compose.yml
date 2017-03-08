@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    image: django_rest_postgres
+    ports:
+      - "8000:8000"
+      - "5022:5022"
+    depends_on:
+      - "db"
+    command: bash -c "../docker_stuff/wait-for-postgres.sh db 5432 django_rest_postgres --
+      python manage.py migrate
+      && /usr/sbin/sshd -D"
+    volumes:
+       - /Work/IdeaProjects/temp/DjangoRESTPostgres:/usr/src
+    environment:
+      - PGUSER=docker
+      - PGPASSWORD=docker
+
+  db:
+    image: postgres
+    container_name: pg-db
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=django_rest_postgres
+    ports: 
+      - "5432:5432"

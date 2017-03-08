@@ -53,7 +53,7 @@ class Common(Configuration):
     )
 
     # Postgres
-    DATABASES = values.DatabaseURLValue('postgres://docker:docker@192.168.99.100:5432/django_rest_postgres')
+    DATABASES = values.DatabaseURLValue('postgres://docker:docker@pg-db:5432/django_rest_postgres')
 
     # General
     APPEND_SLASH = values.BooleanValue(False)
