@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1aac40d7-0e85-46ea-81a0-6c397627ddf4" name="Docker" url="http://192.168.99.100">
+        <fileTransfer host="192.168.99.100" port="5022" privateKey="C:\Users\info_000\.ssh\my_docker_containers_openssh.ppk" rootFolder="/root" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="5022" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
